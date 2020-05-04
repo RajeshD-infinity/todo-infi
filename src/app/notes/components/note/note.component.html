@@ -1,0 +1,23 @@
+<div class="card" style="width: 100%;">
+  <div class="card-body">
+    <h5 class="card-title" [ngClass]="{'strikethroughText': note.done == true}">{{ note.title }}</h5>
+    <p class="card-text">{{ note.description }}</p>
+    <div class="brn-container text-right">
+      <button
+        type="button"
+        class="btn btn-secondary btn-sm mr-4"
+        (click)="markAsDone()"
+        *ngIf='!note.done'
+      >
+        Done
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger btn-sm"
+        (click)="deleteNote()"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

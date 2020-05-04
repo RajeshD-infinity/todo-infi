@@ -1,0 +1,8 @@
+:host {
+    width: 100%;
+}
+
+.strikethroughText {
+    text-decoration: line-through;
+    text-decoration-color: red;
+}

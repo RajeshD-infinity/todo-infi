@@ -1,0 +1,46 @@
+<div class="row p-4">
+  <div class="col-md-6 offset-md-3">
+    <form [formGroup]="notesForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          placeholder="Title"
+          autocomplete="off"
+          formControlName="title"
+        />
+      </div>
+      <div class="form-group">
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          placeholder="Description, minimum 10 characters"
+          formControlName="description"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!notesForm.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+<div class="row p-4 m-4">
+  <ul class="list-group w-100">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let note of notesArray"
+    >
+      <app-note
+        [note]="note"
+        (done)="markNoteAsDone($event)"
+        (delete)="markNoteAsDelete($event)"
+      ></app-note>
+    </li>
+  </ul>
+</div>
